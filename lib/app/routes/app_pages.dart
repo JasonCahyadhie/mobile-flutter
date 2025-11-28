@@ -32,6 +32,24 @@ import '../modules/material_design/views/pages/md_alertdialog_page.dart';
 import '../modules/material_design/views/pages/md_snackbar_page.dart';
 import '../modules/material_design/views/pages/md_drawer_page.dart';
 import '../modules/material_design/views/pages/md_bottomnavbar_page.dart';
+import '../modules/material_design/views/pages/md_bottom_navigation_bar_page.dart';
+import '../modules/material_design/views/pages/md_navigation_bar_page.dart';
+import '../modules/material_design/views/pages/md_navigation_drawer_page.dart';
+import '../modules/material_design/views/pages/md_navigation_rail_page.dart';
+import '../modules/material_design/views/pages/md_floating_action_button_page.dart';
+import '../modules/material_design/views/pages/md_chip_page.dart';
+import '../modules/material_design/views/pages/md_raw_chip_page.dart';
+import '../modules/material_design/views/pages/md_circular_progress_indicator_page.dart';
+import '../modules/material_design/views/pages/md_linear_progress_indicator_page.dart';
+import '../modules/material_design/views/pages/md_date_picker_page.dart';
+import '../modules/material_design/views/pages/md_time_picker_page.dart';
+import '../modules/material_design/views/pages/md_divider_page.dart';
+import '../modules/material_design/views/pages/md_icon_button_page.dart';
+import '../modules/material_design/views/pages/md_material_button_page.dart';
+import '../modules/material_design/views/pages/md_list_tile_page.dart';
+import '../modules/material_design/views/pages/md_tab_bar_page.dart';
+import '../modules/material_design/views/pages/md_tab_bar_view_page.dart';
+
 
 import '../modules/basic_widget/bindings/basic_widget_binding.dart';
 import '../modules/basic_widget/views/basic_widget_view.dart';
@@ -39,12 +57,31 @@ import '../modules/basic_widget/views/pages/bw_text_page.dart';
 import '../modules/basic_widget/views/pages/bw_button_page.dart';
 import '../modules/basic_widget/views/pages/bw_image_page.dart';
 import '../modules/basic_widget/views/pages/bw_icon_page.dart';
+import '../modules/basic_widget/views/pages/bw_network_image_page.dart';
+import '../modules/basic_widget/views/pages/bw_asset_image_page.dart';
+import '../modules/basic_widget/views/pages/bw_container_page.dart';
+import '../modules/basic_widget/views/pages/bw_sized_box_page.dart';
+import '../modules/basic_widget/views/pages/bw_placeholder_page.dart';
+import '../modules/basic_widget/views/pages/bw_rich_text_page.dart';
+import '../modules/basic_widget/views/pages/bw_spacer_page.dart';
+import '../modules/basic_widget/views/pages/bw_expanded_page.dart';
+import '../modules/basic_widget/views/pages/bw_flexible_page.dart';
+import '../modules/basic_widget/views/pages/bw_builder_page.dart';
+import '../modules/basic_widget/views/pages/bw_progress_indicator_page.dart';
+
 
 import '../modules/layout_structure/bindings/layout_structure_binding.dart';
 import '../modules/layout_structure/views/layout_structure_view.dart';
 import '../modules/layout_structure/views/pages/ls_container_page.dart';
 import '../modules/layout_structure/views/pages/ls_row_column_page.dart';
 import '../modules/layout_structure/views/pages/ls_stack_page.dart';
+import '../modules/layout_structure/views/pages/ls_column_page.dart';
+import '../modules/layout_structure/views/pages/ls_row_page.dart';
+import '../modules/layout_structure/views/pages/ls_align_page.dart';
+import '../modules/layout_structure/views/pages/ls_center_page.dart';
+import '../modules/layout_structure/views/pages/ls_padding_page.dart';
+import '../modules/layout_structure/views/pages/ls_safe_area_page.dart';
+
 
 import '../modules/input_forms/bindings/input_forms_binding.dart';
 import '../modules/input_forms/views/input_forms_view.dart';
@@ -53,12 +90,17 @@ import '../modules/input_forms/views/pages/if_checkbox_page.dart';
 import '../modules/input_forms/views/pages/if_radio_page.dart';
 import '../modules/input_forms/views/pages/if_switch_page.dart';
 import '../modules/input_forms/views/pages/if_dropdown_page.dart';
+import '../modules/input_forms/views/pages/if_text_form_field_page.dart';
+import '../modules/input_forms/views/pages/if_slider_page.dart';
+
 
 import '../modules/scrolling_list/bindings/scrolling_list_binding.dart';
 import '../modules/scrolling_list/views/scrolling_list_view.dart';
 import '../modules/scrolling_list/views/pages/sl_listview_page.dart';
 import '../modules/scrolling_list/views/pages/sl_gridview_page.dart';
 import '../modules/scrolling_list/views/pages/sl_pageview_page.dart';
+import '../modules/scrolling_list/views/pages/sl_single_child_scroll_view_page.dart';
+
 
 import '../modules/api_integration/bindings/api_integration_binding.dart';
 import '../modules/api_integration/views/api_integration_view.dart';
@@ -193,6 +235,74 @@ class AppPages {
       name: _Paths.MD_BOTTOMNAVBAR,
       page: () => const MdBottomnavbarPage(),
     ),
+    GetPage(
+      name: _Paths.MD_BOTTOM_NAVIGATION_BAR,
+      page: () => const MdBottomNavigationBarPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_NAVIGATION_BAR,
+      page: () => const MdNavigationBarPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_NAVIGATION_DRAWER,
+      page: () => const MdNavigationDrawerPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_NAVIGATION_RAIL,
+      page: () => const MdNavigationRailPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_FLOATING_ACTION_BUTTON,
+      page: () => const MdFloatingActionButtonPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_CHIP,
+      page: () => const MdChipPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_RAW_CHIP,
+      page: () => const MdRawChipPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_CIRCULAR_PROGRESS_INDICATOR,
+      page: () => const MdCircularProgressIndicatorPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_LINEAR_PROGRESS_INDICATOR,
+      page: () => const MdLinearProgressIndicatorPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_DATE_PICKER,
+      page: () => const MdDatePickerPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_TIME_PICKER,
+      page: () => const MdTimePickerPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_DIVIDER,
+      page: () => const MdDividerPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_ICON_BUTTON,
+      page: () => const MdIconButtonPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_MATERIAL_BUTTON,
+      page: () => const MdMaterialButtonPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_LIST_TILE,
+      page: () => const MdListTilePage(),
+    ),
+    GetPage(
+      name: _Paths.MD_TAB_BAR,
+      page: () => const MdTabBarPage(),
+    ),
+    GetPage(
+      name: _Paths.MD_TAB_BAR_VIEW,
+      page: () => const MdTabBarViewPage(),
+    ),
     
     // Basic Widget Routes
     GetPage(
@@ -215,6 +325,50 @@ class AppPages {
     GetPage(
       name: _Paths.BW_ICON,
       page: () => const BwIconPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_NETWORK_IMAGE,
+      page: () => const BwNetworkImagePage(),
+    ),
+    GetPage(
+      name: _Paths.BW_ASSET_IMAGE,
+      page: () => const BwAssetImagePage(),
+    ),
+    GetPage(
+      name: _Paths.BW_CONTAINER,
+      page: () => const BwContainerPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_SIZED_BOX,
+      page: () => const BwSizedBoxPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_PLACEHOLDER,
+      page: () => const BwPlaceholderPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_RICH_TEXT,
+      page: () => const BwRichTextPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_SPACER,
+      page: () => const BwSpacerPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_EXPANDED,
+      page: () => const BwExpandedPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_FLEXIBLE,
+      page: () => const BwFlexiblePage(),
+    ),
+    GetPage(
+      name: _Paths.BW_BUILDER,
+      page: () => const BwBuilderPage(),
+    ),
+    GetPage(
+      name: _Paths.BW_PROGRESS_INDICATOR,
+      page: () => const BwProgressIndicatorPage(),
     ),
     
     // Layout Structure Routes
@@ -283,25 +437,26 @@ class AppPages {
     ),
     
     // Other Routes
-    GetPage(
-      name: _Paths.API_INTEGRATION,
-      page: () => const ApiIntegrationView(),
-      binding: ApiIntegrationBinding(),
-    ),
-    GetPage(
-      name: _Paths.LOCAL_STORAGE,
-      page: () => const LocalStorageView(),
-      binding: LocalStorageBinding(),
-    ),
-    GetPage(
-      name: _Paths.DEVICE_FEATURES,
-      page: () => const DeviceFeaturesView(),
-      binding: DeviceFeaturesBinding(),
-    ),
-    GetPage(
-      name: _Paths.STUDY_CASE,
-      page: () => const StudyCaseView(),
-      binding: StudyCaseBinding(),
-    ),
+    // TODO: Uncomment when modules are implemented
+    // GetPage(
+    //   name: _Paths.API_INTEGRATION,
+    //   page: () => const ApiIntegrationView(),
+    //   binding: ApiIntegrationBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.LOCAL_STORAGE,
+    //   page: () => const LocalStorageView(),
+    //   binding: LocalStorageBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.DEVICE_FEATURES,
+    //   page: () => const DeviceFeaturesView(),
+    //   binding: DeviceFeaturesBinding(),
+    // ),
+    // GetPage(
+    //   name: _Paths.STUDY_CASE,
+    //   page: () => const StudyCaseView(),
+    //   binding: StudyCaseBinding(),
+    // ),
   ];
 }

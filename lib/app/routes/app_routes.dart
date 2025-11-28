@@ -32,6 +32,23 @@ abstract class Routes {
   static const MD_SNACKBAR = _Paths.MD_SNACKBAR;
   static const MD_DRAWER = _Paths.MD_DRAWER;
   static const MD_BOTTOMNAVBAR = _Paths.MD_BOTTOMNAVBAR;
+  static const MD_BOTTOM_NAVIGATION_BAR = _Paths.MD_BOTTOM_NAVIGATION_BAR;
+  static const MD_NAVIGATION_BAR = _Paths.MD_NAVIGATION_BAR;
+  static const MD_NAVIGATION_DRAWER = _Paths.MD_NAVIGATION_DRAWER;
+  static const MD_NAVIGATION_RAIL = _Paths.MD_NAVIGATION_RAIL;
+  static const MD_FLOATING_ACTION_BUTTON = _Paths.MD_FLOATING_ACTION_BUTTON;
+  static const MD_CHIP = _Paths.MD_CHIP;
+  static const MD_RAW_CHIP = _Paths.MD_RAW_CHIP;
+  static const MD_CIRCULAR_PROGRESS_INDICATOR = _Paths.MD_CIRCULAR_PROGRESS_INDICATOR;
+  static const MD_LINEAR_PROGRESS_INDICATOR = _Paths.MD_LINEAR_PROGRESS_INDICATOR;
+  static const MD_DATE_PICKER = _Paths.MD_DATE_PICKER;
+  static const MD_TIME_PICKER = _Paths.MD_TIME_PICKER;
+  static const MD_DIVIDER = _Paths.MD_DIVIDER;
+  static const MD_ICON_BUTTON = _Paths.MD_ICON_BUTTON;
+  static const MD_MATERIAL_BUTTON = _Paths.MD_MATERIAL_BUTTON;
+  static const MD_LIST_TILE = _Paths.MD_LIST_TILE;
+  static const MD_TAB_BAR = _Paths.MD_TAB_BAR;
+  static const MD_TAB_BAR_VIEW = _Paths.MD_TAB_BAR_VIEW;
   
   // Basic Widget Routes
   static const BASIC_WIDGET = _Paths.BASIC_WIDGET;
@@ -39,6 +56,17 @@ abstract class Routes {
   static const BW_BUTTON = _Paths.BW_BUTTON;
   static const BW_IMAGE = _Paths.BW_IMAGE;
   static const BW_ICON = _Paths.BW_ICON;
+  static const BW_NETWORK_IMAGE = _Paths.BW_NETWORK_IMAGE;
+  static const BW_ASSET_IMAGE = _Paths.BW_ASSET_IMAGE;
+  static const BW_CONTAINER = _Paths.BW_CONTAINER;
+  static const BW_SIZED_BOX = _Paths.BW_SIZED_BOX;
+  static const BW_PLACEHOLDER = _Paths.BW_PLACEHOLDER;
+  static const BW_RICH_TEXT = _Paths.BW_RICH_TEXT;
+  static const BW_SPACER = _Paths.BW_SPACER;
+  static const BW_EXPANDED = _Paths.BW_EXPANDED;
+  static const BW_FLEXIBLE = _Paths.BW_FLEXIBLE;
+  static const BW_BUILDER = _Paths.BW_BUILDER;
+  static const BW_PROGRESS_INDICATOR = _Paths.BW_PROGRESS_INDICATOR;
   
   // Layout Structure Routes
   static const LAYOUT_STRUCTURE = _Paths.LAYOUT_STRUCTURE;
@@ -105,6 +133,23 @@ abstract class _Paths {
   static const MD_SNACKBAR = '/material-design/snackbar';
   static const MD_DRAWER = '/material-design/drawer';
   static const MD_BOTTOMNAVBAR = '/material-design/bottomnavbar';
+  static const MD_BOTTOM_NAVIGATION_BAR = '/material-design/bottom-navigation-bar';
+  static const MD_NAVIGATION_BAR = '/material-design/navigation-bar';
+  static const MD_NAVIGATION_DRAWER = '/material-design/navigation-drawer';
+  static const MD_NAVIGATION_RAIL = '/material-design/navigation-rail';
+  static const MD_FLOATING_ACTION_BUTTON = '/material-design/floating-action-button';
+  static const MD_CHIP = '/material-design/chip';
+  static const MD_RAW_CHIP = '/material-design/raw-chip';
+  static const MD_CIRCULAR_PROGRESS_INDICATOR = '/material-design/circular-progress-indicator';
+  static const MD_LINEAR_PROGRESS_INDICATOR = '/material-design/linear-progress-indicator';
+  static const MD_DATE_PICKER = '/material-design/date-picker';
+  static const MD_TIME_PICKER = '/material-design/time-picker';
+  static const MD_DIVIDER = '/material-design/divider';
+  static const MD_ICON_BUTTON = '/material-design/icon-button';
+  static const MD_MATERIAL_BUTTON = '/material-design/material-button';
+  static const MD_LIST_TILE = '/material-design/list-tile';
+  static const MD_TAB_BAR = '/material-design/tab-bar';
+  static const MD_TAB_BAR_VIEW = '/material-design/tab-bar-view';
   
   // Basic Widget Paths
   static const BASIC_WIDGET = '/basic-widget';
@@ -112,6 +157,17 @@ abstract class _Paths {
   static const BW_BUTTON = '/basic-widget/button';
   static const BW_IMAGE = '/basic-widget/image';
   static const BW_ICON = '/basic-widget/icon';
+  static const BW_NETWORK_IMAGE = '/basic-widget/network-image';
+  static const BW_ASSET_IMAGE = '/basic-widget/asset-image';
+  static const BW_CONTAINER = '/basic-widget/container';
+  static const BW_SIZED_BOX = '/basic-widget/sized-box';
+  static const BW_PLACEHOLDER = '/basic-widget/placeholder';
+  static const BW_RICH_TEXT = '/basic-widget/rich-text';
+  static const BW_SPACER = '/basic-widget/spacer';
+  static const BW_EXPANDED = '/basic-widget/expanded';
+  static const BW_FLEXIBLE = '/basic-widget/flexible';
+  static const BW_BUILDER = '/basic-widget/builder';
+  static const BW_PROGRESS_INDICATOR = '/basic-widget/progress-indicator';
   
   // Layout Structure Paths
   static const LAYOUT_STRUCTURE = '/layout-structure';

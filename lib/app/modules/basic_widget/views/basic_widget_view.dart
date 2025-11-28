@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/basic_widget_controller.dart';
-import '../../../routes/app_routes.dart';
+import '../../../routes/app_pages.dart';
 
 class BasicWidgetView extends GetView<BasicWidgetController> {
   const BasicWidgetView({super.key});
