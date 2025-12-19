@@ -311,37 +311,29 @@ class _Study_caseViewState extends State<Study_caseView> {
     );
   }
 
-  Widget _buildInfoCardItem(String icon, String label, String value, Color color) {
+  Widget _buildInfoCardItem(IconData icon, String title, String value, Color color) {
     return Card(
-      elevation: 3,
+      elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+        padding: EdgeInsets.all(12), // Reduced from 16
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(icon, style: TextStyle(fontSize: 24)),
-            SizedBox(height: 6),
+            Icon(icon, size: 40, color: color), // Reduced from 48
+            SizedBox(height: 8), // Reduced from 12
             Text(
-              label,
-              style: TextStyle(
-                fontSize: 10,
-                color: Colors.grey[600],
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 3),
-            Text(
-              value,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
+              title,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF013466)), // Reduced from 18
               textAlign: TextAlign.center,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 6), // Reduced from 8
+            Text(
+              value,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: color), // Reduced from 28
+              textAlign: TextAlign.center,
             ),
           ],
         ),
