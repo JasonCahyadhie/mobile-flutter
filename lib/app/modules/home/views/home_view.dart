@@ -10,89 +10,84 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Informatika App - Home'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              'Flutter Training Modules',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+        title: const Text(
+          'Mobile Programming',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.purple.shade400,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.purple.shade400, Colors.blue.shade400],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
             ),
           ),
-          _buildMenuCard(
-            context,
-            'Widgets',
-            'Explore Flutter Widgets',
-            Icons.widgets,
-            Routes.WIDGETS,
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite_border, color: Colors.white),
+            onPressed: () {},
           ),
-          _buildMenuCard(
-            context,
-            'Material Design',
-            'Material Design Components',
-            Icons.design_services,
-            Routes.MATERIAL_DESIGN,
+        ],
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(16.0),
+            color: Colors.grey.shade100,
+            child: const Text(
+              'Modul Praktikum Universitas Matana',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
           ),
-          _buildMenuCard(
-            context,
-            'Basic Widget',
-            'Basic Widget Examples',
-            Icons.auto_awesome,
-            Routes.BASIC_WIDGET,
-          ),
-          _buildMenuCard(
-            context,
-            'Layout Structure',
-            'Layout and Structure',
-            Icons.view_quilt,
-            Routes.LAYOUT_STRUCTURE,
-          ),
-          _buildMenuCard(
-            context,
-            'Input Forms',
-            'Form Input Widgets',
-            Icons.input,
-            Routes.INPUT_FORMS,
-          ),
-          _buildMenuCard(
-            context,
-            'Scrolling List',
-            'Scrolling and List Widgets',
-            Icons.list,
-            Routes.SCROLLING_LIST,
-          ),
-          _buildMenuCard(
-            context,
-            'API Integration',
-            'REST API Integration',
-            Icons.cloud,
-            Routes.API_INTEGRATION,
-          ),
-          _buildMenuCard(
-            context,
-            'Local Storage',
-            'Local Data Storage',
-            Icons.storage,
-            Routes.LOCAL_STORAGE,
-          ),
-          _buildMenuCard(
-            context,
-            'Device Features',
-            'Device Hardware Features',
-            Icons.phone_android,
-            Routes.DEVICE_FEATURES,
-          ),
-          _buildMenuCard(
-            context,
-            'Study Case',
-            'Practical Study Cases',
-            Icons.school,
-            Routes.STUDY_CASE,
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              children: [
+                _buildMenuCard(
+                  'Widgets',
+                  'Contoh widget di flutter',
+                  Icons.widgets,
+                  Colors.cyan.shade300,
+                  Routes.WIDGETS,
+                ),
+                _buildMenuCard(
+                  'API Integration',
+                  'contoh latihan webservice',
+                  Icons.cloud_outlined,
+                  Colors.blue.shade400,
+                  Routes.API_INTEGRATION,
+                ),
+                _buildMenuCard(
+                  'Locale Storage',
+                  'contoh latihan penyimanan di lokal',
+                  Icons.storage_outlined,
+                  Colors.red.shade400,
+                  Routes.LOCAL_STORAGE,
+                ),
+                _buildMenuCard(
+                  'Device Features',
+                  'Contoh latihan mengakses hardware',
+                  Icons.devices_other,
+                  Colors.green.shade300,
+                  Routes.DEVICE_FEATURES,
+                ),
+                _buildMenuCard(
+                  'Project Base',
+                  'Company Profile Informatika',
+                  Icons.flash_on,
+                  Colors.yellow.shade400,
+                  Routes.STUDY_CASE,
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -100,23 +95,53 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget _buildMenuCard(
-    BuildContext context,
     String title,
     String subtitle,
     IconData icon,
+    Color iconColor,
     String route,
   ) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12.0),
-      elevation: 2,
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Colors.grey.shade200, width: 1),
+        ),
+      ),
       child: ListTile(
-        leading: Icon(icon, size: 40, color: Theme.of(context).colorScheme.primary),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        leading: Container(
+          width: 56,
+          height: 56,
+          decoration: BoxDecoration(
+            color: iconColor,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 28,
+          ),
+        ),
         title: Text(
           title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.black87,
+          ),
         ),
-        subtitle: Text(subtitle),
-        trailing: const Icon(Icons.arrow_forward_ios),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(
+            fontSize: 13,
+            color: Colors.grey.shade600,
+          ),
+        ),
+        trailing: Icon(
+          Icons.arrow_forward_ios,
+          size: 16,
+          color: Colors.grey.shade600,
+        ),
         onTap: () => Get.toNamed(route),
       ),
     );

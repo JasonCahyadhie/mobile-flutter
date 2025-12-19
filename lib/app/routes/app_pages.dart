@@ -8,9 +8,12 @@ import '../modules/widgets/views/widgets_view.dart';
 
 import '../modules/material_design/bindings/material_design_binding.dart';
 import '../modules/material_design/views/material_design_view.dart';
-import '../modules/material_design/views/pages/md_appbar_page.dart';
-import '../modules/material_design/views/pages/md_materialapp_page.dart';
-import '../modules/material_design/views/pages/md_scaffold_page.dart';
+import '../modules/material_design/views/app_bar_view.dart';
+import '../modules/material_design/bindings/app_bar_binding.dart';
+import '../modules/material_design/views/material_app_view.dart';
+import '../modules/material_design/bindings/material_app_binding.dart';
+import '../modules/material_design/views/scaffold_view.dart';
+import '../modules/material_design/bindings/scaffold_binding.dart';
 import '../modules/material_design/views/pages/md_container_page.dart';
 import '../modules/material_design/views/pages/md_center_page.dart';
 import '../modules/material_design/views/pages/md_column_page.dart';
@@ -141,15 +144,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.MD_APPBAR,
-      page: () => const MdAppbarPage(),
+      page: () => const AppBarView(),
+      binding: AppBarBinding(),
     ),
     GetPage(
       name: _Paths.MD_MATERIALAPP,
-      page: () => const MdMaterialappPage(),
+      page: () => const MaterialAppView(),
+      binding: MaterialAppBinding(),
     ),
     GetPage(
       name: _Paths.MD_SCAFFOLD,
-      page: () => const MdScaffoldPage(),
+      page: () => const ScaffoldView(),
+      binding: ScaffoldBinding(),
     ),
     GetPage(
       name: _Paths.MD_CONTAINER,
@@ -453,10 +459,10 @@ class AppPages {
     //   page: () => const DeviceFeaturesView(),
     //   binding: DeviceFeaturesBinding(),
     // ),
-    // GetPage(
-    //   name: _Paths.STUDY_CASE,
-    //   page: () => const StudyCaseView(),
-    //   binding: StudyCaseBinding(),
-    // ),
+    GetPage(
+      name: _Paths.STUDY_CASE,
+      page: () => const Study_caseView(),
+      binding: Study_caseBinding(),
+    ),
   ];
 }

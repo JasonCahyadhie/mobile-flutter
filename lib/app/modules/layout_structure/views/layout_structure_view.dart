@@ -10,35 +10,82 @@ class LayoutStructureView extends GetView<LayoutStructureController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Layout Structure'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text(
+          'Layout Structure',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.teal.shade400,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.teal.shade400, Colors.cyan.shade400],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+          ),
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
           const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
+            padding: EdgeInsets.only(bottom: 16.0),
             child: Text(
-              'Layout Structure Examples',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+              'Bentuk Layout Structure',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
             ),
           ),
-          _buildMenuItem(context, 'Container Layout', Routes.LS_CONTAINER),
-          _buildMenuItem(context, 'Row & Column Layout', Routes.LS_ROW_COLUMN),
-          _buildMenuItem(context, 'Stack Layout', Routes.LS_STACK),
+          GridView.count(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: 3,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            children: [
+              _buildWidgetCard('Container', Icons.crop_square, Colors.blue.shade400, Routes.LS_CONTAINER),
+              _buildWidgetCard('Row & Column', Icons.view_comfy, Colors.green.shade400, Routes.LS_ROW_COLUMN),
+              _buildWidgetCard('Stack', Icons.layers, Colors.purple.shade400, Routes.LS_STACK),
+            ],
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildMenuItem(BuildContext context, String title, String route) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 8.0),
-      child: ListTile(
-        title: Text(title),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: () => Get.toNamed(route),
+  Widget _buildWidgetCard(String title, IconData icon, Color color, String route) {
+    return InkWell(
+      onTap: () => Get.toNamed(route),
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: Colors.white, size: 36),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

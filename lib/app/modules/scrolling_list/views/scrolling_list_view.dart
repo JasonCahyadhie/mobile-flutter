@@ -10,35 +10,82 @@ class ScrollingListView extends GetView<ScrollingListController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Scrolling List'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text(
+          'Scrolling List',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.indigo.shade400,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.indigo.shade400, Colors.purple.shade400],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+          ),
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
           const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
+            padding: EdgeInsets.only(bottom: 16.0),
             child: Text(
-              'Scrolling List Examples',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+              'Bentuk Scrolling List',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
             ),
           ),
-          _buildMenuItem(context, 'ListView', Routes.SL_LISTVIEW),
-          _buildMenuItem(context, 'GridView', Routes.SL_GRIDVIEW),
-          _buildMenuItem(context, 'PageView', Routes.SL_PAGEVIEW),
+          GridView.count(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: 3,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            children: [
+              _buildWidgetCard('ListView', Icons.list, Colors.blue.shade400, Routes.SL_LISTVIEW),
+              _buildWidgetCard('GridView', Icons.grid_on, Colors.green.shade400, Routes.SL_GRIDVIEW),
+              _buildWidgetCard('PageView', Icons.view_carousel, Colors.purple.shade400, Routes.SL_PAGEVIEW),
+            ],
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildMenuItem(BuildContext context, String title, String route) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 8.0),
-      child: ListTile(
-        title: Text(title),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: () => Get.toNamed(route),
+  Widget _buildWidgetCard(String title, IconData icon, Color color, String route) {
+    return InkWell(
+      onTap: () => Get.toNamed(route),
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: Colors.white, size: 36),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

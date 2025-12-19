@@ -81,15 +81,40 @@ class WidgetSearchDelegate extends SearchDelegate<String> {
 class WidgetsView extends GetView<WidgetsController> {
   const WidgetsView({super.key});
 
+  // Color palette for the circular avatar icons
+  final List<Color> iconColors = const [
+    Color(0xFF4DD0E1), // Cyan
+    Color(0xFFFF9800), // Orange
+    Color(0xFF76FF03), // Light Green
+    Color(0xFFF44336), // Red
+    Color(0xFFE91E63), // Pink/Magenta
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Widgets'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Get.back(),
+        ),
+        title: const Text(
+          'Mobile Programming',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.purple,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.purple.shade400, Colors.blue.shade400],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+          ),
+        ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search),
+            icon: const Icon(Icons.search, color: Colors.white),
             onPressed: () {
               showSearch(
                 context: context,
@@ -99,97 +124,78 @@ class WidgetsView extends GetView<WidgetsController> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
-              child: Text(
-                'Flutter Widget Categories',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'Praktikum Widgets',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
               ),
             ),
-            Expanded(
-              child: Obx(() {
-                final items = controller.filteredMenuItems;
-                
-                return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: _getCrossAxisCount(context),
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: 1.0,
-                  ),
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    final item = items[index];
-                    return _buildMenuCard(context, item);
-                  },
-                );
-              }),
-            ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Obx(() {
+              final items = controller.filteredMenuItems;
+              
+              return ListView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  final color = iconColors[index % iconColors.length];
+                  return _buildMenuListTile(context, item, color);
+                },
+              );
+            }),
+          ),
+        ],
       ),
     );
   }
 
-  /// Determines grid cross axis count based on screen width for responsive design
-  int _getCrossAxisCount(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    if (width > 900) {
-      return 4;
-    } else if (width > 600) {
-      return 3;
-    } else {
-      return 2;
-    }
-  }
-
-  /// Builds a Material Design card for menu item
-  Widget _buildMenuCard(BuildContext context, MenuItem item) {
+  /// Builds a list tile with circular colored icon, title, subtitle, and chevron
+  Widget _buildMenuListTile(BuildContext context, MenuItem item, Color color) {
     return Card(
-      elevation: 2,
-      child: InkWell(
-        onTap: () => Get.toNamed(item.route),
-        borderRadius: BorderRadius.circular(12),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                item.icon,
-                size: 48,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                item.title,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                item.description,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Theme.of(context).textTheme.bodySmall?.color,
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      elevation: 0,
+      color: Colors.white,
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        leading: CircleAvatar(
+          backgroundColor: color,
+          radius: 24,
+          child: Icon(
+            item.icon,
+            color: Colors.white,
+            size: 28,
           ),
         ),
+        title: Text(
+          item.title,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.black87,
+          ),
+        ),
+        subtitle: Text(
+          item.description,
+          style: TextStyle(
+            fontSize: 13,
+            color: Colors.grey.shade600,
+          ),
+        ),
+        trailing: const Icon(
+          Icons.chevron_right,
+          color: Colors.grey,
+          size: 28,
+        ),
+        onTap: () => Get.toNamed(item.route),
       ),
     );
   }

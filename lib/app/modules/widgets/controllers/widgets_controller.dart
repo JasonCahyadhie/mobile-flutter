@@ -50,30 +50,6 @@ class WidgetsController extends GetxController {
       icon: Icons.list,
       route: Routes.SCROLLING_LIST,
     ),
-    MenuItem(
-      title: 'API Integration',
-      description: 'REST API Integration',
-      icon: Icons.cloud,
-      route: Routes.API_INTEGRATION,
-    ),
-    MenuItem(
-      title: 'Local Storage',
-      description: 'Local Data Storage',
-      icon: Icons.storage,
-      route: Routes.LOCAL_STORAGE,
-    ),
-    MenuItem(
-      title: 'Device Features',
-      description: 'Device Hardware Features',
-      icon: Icons.phone_android,
-      route: Routes.DEVICE_FEATURES,
-    ),
-    MenuItem(
-      title: 'Study Case',
-      description: 'Practical Study Cases',
-      icon: Icons.school,
-      route: Routes.STUDY_CASE,
-    ),
   ];
 
   List<MenuItem> get filteredMenuItems {
