@@ -283,7 +283,7 @@ class _Study_caseViewState extends State<Study_caseView> {
       children: [
         Expanded(
           child: _buildInfoCardItem(
-            '🏅',
+            Icons.emoji_events,
             'Akreditasi',
             controller.accreditation,
             Color(0xFFFFB814), // Matana orange
@@ -292,7 +292,7 @@ class _Study_caseViewState extends State<Study_caseView> {
         SizedBox(width: 12),
         Expanded(
           child: _buildInfoCardItem(
-            '📅',
+            Icons.calendar_today,
             'Lama Studi',
             controller.studyDuration,
             Color(0xFF013466), // Navy
@@ -301,7 +301,7 @@ class _Study_caseViewState extends State<Study_caseView> {
         SizedBox(width: 12),
         Expanded(
           child: _buildInfoCardItem(
-            '🎓',
+            Icons.school,
             'Fakultas',
             'Sains & Komputer',
             Color(0xFF512DA8), // Deep purple
@@ -975,7 +975,7 @@ class _Study_caseViewState extends State<Study_caseView> {
         crossAxisCount: 2,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
-        childAspectRatio: 0.95,
+        childAspectRatio: 0.75, // Reduced from 0.80 to give even more vertical space
       ),
       itemCount: controller.achievements.length,
       itemBuilder: (context, index) {
@@ -995,20 +995,20 @@ class _Study_caseViewState extends State<Study_caseView> {
                 ],
               ),
             ),
-            padding: EdgeInsets.all(12),
+            padding: EdgeInsets.all(8), // Reduced from 10 to 8
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Changed from center to spaceEvenly
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   achievement.icon,
-                  style: TextStyle(fontSize: 40),
+                  style: TextStyle(fontSize: 32), // Reduced from 36 to 32
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 4), // Reduced from 6 to 4
                 Text(
                   achievement.title,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 12, // Reduced from 13 to 12
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -1016,20 +1016,23 @@ class _Study_caseViewState extends State<Study_caseView> {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 6),
-                Text(
-                  achievement.description,
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: Colors.white70,
+                SizedBox(height: 2), // Reduced from 4 to 2
+                Flexible( // Added Flexible to prevent overflow
+                  child: Text(
+                    achievement.description,
+                    style: TextStyle(
+                      fontSize: 9, // Reduced from 10 to 9
+                      color: Colors.white70,
+                      height: 1.2, // Added line height for better readability
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 3, // Increased from 2 to 3 for more flexibility
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 6),
+                SizedBox(height: 2), // Reduced from 4 to 2
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2), // Reduced padding
                   decoration: BoxDecoration(
                     color: Colors.white24,
                     borderRadius: BorderRadius.circular(12),
@@ -1037,7 +1040,7 @@ class _Study_caseViewState extends State<Study_caseView> {
                   child: Text(
                     achievement.year,
                     style: TextStyle(
-                      fontSize: 11,
+                      fontSize: 9, // Reduced from 10 to 9
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
