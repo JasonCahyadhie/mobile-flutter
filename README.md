@@ -2,6 +2,10 @@
 
 Aplikasi Flutter berbasis GetX untuk pembelajaran mobile programming.
 
+## Pendahuluan
+
+Informatika App merupakan hasil praktikum Mobile Programming semester 5 yang dikembangkan menggunakan Flutter dengan GetX sebagai state management dan solusi routing. Aplikasi ini dirancang sebagai platform pembelajaran komprehensif agar mahasiswa dapat memahami konsep fundamental pengembangan aplikasi mobile, mulai dari widget dasar hingga fitur lanjutan seperti integrasi API, penyimpanan lokal, dan pemanfaatan fitur perangkat.
+
 ## Deskripsi
 
 Aplikasi ini merupakan implementasi dari Praktikum Mobile Programming v1, yang mencakup berbagai modul pembelajaran Flutter:
